@@ -308,7 +308,7 @@
     <string name="images">Images</string>
 
 
-    <string name="images_summary">Si vous avez des lags ou n'aiment pas les chats, juste l'éteindre</string>
+    <string name="images_summary">Si vous avez des lags ou n\'aiment pas les chats, juste l\'éteindre</string>
 
 
 
@@ -326,7 +326,7 @@
 
 
     <string-array name="task_notification">
-        <item>À l'heure</item>
+        <item>À l\'heure</item>
         <item>5 minutes avant</item>
         <item>15 minutes avant</item>
         <item>30 minutes avant</item>
