@@ -801,7 +801,6 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void sendDefaultNotification() {
-
         NotificationCompat.Builder builder;
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
