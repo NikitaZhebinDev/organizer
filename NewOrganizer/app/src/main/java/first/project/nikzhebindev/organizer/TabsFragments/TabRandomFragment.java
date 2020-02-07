@@ -15,7 +15,7 @@ import android.view.animation.Animation;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import first.project.nikzhebindev.organizer.Fragments.ThemesFragment;
+import first.project.nikzhebindev.organizer.fragment.ThemesFragment;
 import first.project.nikzhebindev.organizer.R;
 
 

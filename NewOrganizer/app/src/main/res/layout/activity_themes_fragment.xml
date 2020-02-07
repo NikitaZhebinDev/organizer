@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="first.project.nikzhebindev.organizer.Fragments.ThemesFragment">
+    tools:context="first.project.nikzhebindev.organizer.fragment.ThemesFragment">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

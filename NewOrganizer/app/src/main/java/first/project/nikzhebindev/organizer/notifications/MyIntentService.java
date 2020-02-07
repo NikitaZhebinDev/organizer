@@ -13,9 +13,7 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.media.AudioAttributes;
 import android.net.Uri;
-import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.text.format.DateUtils;
@@ -24,8 +22,8 @@ import android.widget.RemoteViews;
 import first.project.nikzhebindev.organizer.MainMenu;
 import first.project.nikzhebindev.organizer.NewTask;
 import first.project.nikzhebindev.organizer.R;
-import first.project.nikzhebindev.organizer.databases.DataBaseLists;
-import first.project.nikzhebindev.organizer.databases.DataBaseTasks;
+import first.project.nikzhebindev.organizer.db.DataBaseLists;
+import first.project.nikzhebindev.organizer.db.DataBaseTasks;
 
 import java.util.Date;
 

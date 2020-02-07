@@ -26,9 +26,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import first.project.nikzhebindev.organizer.databases.DataBaseFinishedTasks;
-import first.project.nikzhebindev.organizer.databases.DataBaseLists;
-import first.project.nikzhebindev.organizer.databases.DataBaseTasks;
+import first.project.nikzhebindev.organizer.db.DataBaseFinishedTasks;
+import first.project.nikzhebindev.organizer.db.DataBaseLists;
+import first.project.nikzhebindev.organizer.db.DataBaseTasks;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;

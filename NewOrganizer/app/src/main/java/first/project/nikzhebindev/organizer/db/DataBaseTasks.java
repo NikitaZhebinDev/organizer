@@ -1,8 +1,7 @@
-package first.project.nikzhebindev.organizer.databases;
+package first.project.nikzhebindev.organizer.db;
 
 
 import android.app.AlarmManager;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,18 +11,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
-import android.widget.RemoteViews;
 
-import first.project.nikzhebindev.organizer.MainMenu;
-import first.project.nikzhebindev.organizer.NewTask;
 import first.project.nikzhebindev.organizer.R;
 import first.project.nikzhebindev.organizer.notifications.MyReceiver;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

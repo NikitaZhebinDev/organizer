@@ -1,4 +1,4 @@
-package first.project.nikzhebindev.organizer.Fragments;
+package first.project.nikzhebindev.organizer.fragment;
 
 
 import android.content.SharedPreferences;

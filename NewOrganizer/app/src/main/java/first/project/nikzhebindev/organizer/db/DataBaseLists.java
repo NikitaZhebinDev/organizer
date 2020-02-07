@@ -1,4 +1,4 @@
-package first.project.nikzhebindev.organizer.databases;
+package first.project.nikzhebindev.organizer.db;
 
 
 import android.content.ContentValues;
@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.RequiresPermission;
 
 import first.project.nikzhebindev.organizer.R;
 
