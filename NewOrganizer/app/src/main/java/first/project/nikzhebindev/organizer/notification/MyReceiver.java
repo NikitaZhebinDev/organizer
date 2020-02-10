@@ -1,4 +1,4 @@
-package first.project.nikzhebindev.organizer.notifications;
+package first.project.nikzhebindev.organizer.notification;
 
 
 import android.content.BroadcastReceiver;

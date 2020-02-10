@@ -15,10 +15,10 @@ import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
 
 import first.project.nikzhebindev.organizer.R;
-import first.project.nikzhebindev.organizer.TabsFragments.SectionsPageAdapter;
-import first.project.nikzhebindev.organizer.TabsFragments.TabDefaultFragment;
-import first.project.nikzhebindev.organizer.TabsFragments.TabIndigoGreenPurpleFragment;
-import first.project.nikzhebindev.organizer.TabsFragments.TabRandomFragment;
+import first.project.nikzhebindev.organizer.fragment.tab.SectionsPageAdapter;
+import first.project.nikzhebindev.organizer.fragment.tab.TabDefaultFragment;
+import first.project.nikzhebindev.organizer.fragment.tab.TabIndigoGreenPurpleFragment;
+import first.project.nikzhebindev.organizer.fragment.tab.TabRandomFragment;
 
 public class ThemesFragment extends AppCompatActivity implements RewardedVideoAdListener {
 

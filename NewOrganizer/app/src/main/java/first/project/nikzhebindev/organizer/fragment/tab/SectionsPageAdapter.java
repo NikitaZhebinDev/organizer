@@ -1,4 +1,4 @@
-package first.project.nikzhebindev.organizer.TabsFragments;
+package first.project.nikzhebindev.organizer.fragment.tab;
 
 
 import android.support.v4.app.Fragment;

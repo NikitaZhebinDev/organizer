@@ -1,4 +1,4 @@
-package first.project.nikzhebindev.organizer.TabsFragments;
+package first.project.nikzhebindev.organizer.fragment.tab;
 
 import android.content.Context;
 import android.content.SharedPreferences;

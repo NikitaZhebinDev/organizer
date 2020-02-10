@@ -13,7 +13,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.preference.PreferenceManager;
 
 import first.project.nikzhebindev.organizer.R;
-import first.project.nikzhebindev.organizer.notifications.MyReceiver;
+import first.project.nikzhebindev.organizer.notification.MyReceiver;
 
 import java.util.ArrayList;
 import java.util.Calendar;

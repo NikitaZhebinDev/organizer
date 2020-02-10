@@ -30,12 +30,12 @@
             android:windowSoftInputMode="stateVisible" />
 
         <receiver
-            android:name=".notifications.MyReceiver"
+            android:name=".notification.MyReceiver"
             android:enabled="true"
             android:exported="false" />
 
         <service
-            android:name=".notifications.MyIntentService"
+            android:name=".notification.MyIntentService"
             android:exported="false" />
 
         <activity android:name=".SplashActivity">
@@ -45,7 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdFullScreen" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />

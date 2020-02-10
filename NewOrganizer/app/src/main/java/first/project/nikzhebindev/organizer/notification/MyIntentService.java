@@ -1,4 +1,4 @@
-package first.project.nikzhebindev.organizer.notifications;
+package first.project.nikzhebindev.organizer.notification;
 
 
 import android.app.AlarmManager;
@@ -118,7 +118,7 @@ public class MyIntentService extends IntentService {
                 // Configure the notification channel.
                 mChannel.setDescription(description);
                 mChannel.enableLights(true);
-                // Sets the notification light color for notifications posted to this
+                // Sets the notification light color for notification posted to this
                 // channel, if the device supports this feature.
                 mChannel.setLightColor(Color.BLUE);
                 notificationManager.createNotificationChannel(mChannel);

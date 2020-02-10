@@ -1,6 +1,5 @@
 package first.project.nikzhebindev.organizer;
 
-import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.NotificationManager;
@@ -13,8 +12,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
@@ -39,7 +36,6 @@ import android.widget.Toast;
 import first.project.nikzhebindev.organizer.db.DataBaseFinishedTasks;
 import first.project.nikzhebindev.organizer.db.DataBaseLists;
 import first.project.nikzhebindev.organizer.db.DataBaseTasks;
-import first.project.nikzhebindev.organizer.notifications.MyReceiver;
 
 import java.util.ArrayList;
 import java.util.Calendar;
