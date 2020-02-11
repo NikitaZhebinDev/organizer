@@ -1192,7 +1192,6 @@ public class MainMenu extends AppCompatActivity implements NavigationView.OnNavi
         }
     }
 
-
     @Override
     protected void onResumeFragments() {
         super.onResumeFragments();
