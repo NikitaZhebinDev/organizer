@@ -18,88 +18,68 @@ import android.widget.Toast;
 import first.project.nikzhebindev.organizer.fragment.ThemesFragment;
 import first.project.nikzhebindev.organizer.R;
 
-
 public class TabRandomFragment extends Fragment {
 
-    private static final String TAG = "TabRandomFragment";
+  private static final String TAG = "TabRandomFragment";
 
+  @Nullable
+  @Override
+  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+    View view = inflater.inflate(R.layout.theme_random_fragment, container, false);
+    final ImageButton imageRandomTheme = view.findViewById(R.id.imageRandomTheme);
 
-
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.theme_random_fragment, container, false);
-
-
-
-        final ImageButton imageRandomTheme = view.findViewById(R.id.imageRandomTheme);
-
-
-
-
-        /** //////////////////////////////////   Premium   ////////////////////////////////// */
-
-        imageRandomTheme.setOnClickListener(new View.OnClickListener() {
+    /** //////////////////////////////////   Premium   ////////////////////////////////// */
+    imageRandomTheme.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (isOnline()) {
+          Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageRandomTheme.getContext(), R.anim.btn_theme_click);
+          imageRandomTheme.startAnimation(anim);
+          anim.setAnimationListener(new Animation.AnimationListener() {
             @Override
-            public void onClick(View v) {
-
-
-                if (isOnline()) {
-                    Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageRandomTheme.getContext(), R.anim.btn_theme_click);
-                    imageRandomTheme.startAnimation(anim);
-                    anim.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            imageRandomTheme.setAlpha(0.0f);
-
-                            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                            SharedPreferences.Editor ed = sPref.edit();
-                            ed.putString("AdVideoTheme", "RandomAd");
-                            ed.apply();
-
-                            ((ThemesFragment) getActivity()).loadRewardedVideoAd();
-
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-                        }
-                    });
-                } else {
-                    Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageRandomTheme.getContext(), R.anim.shake);
-                    imageRandomTheme.startAnimation(anim);
-                    Toast.makeText(getActivity(), "Check your Internet connection!", Toast.LENGTH_SHORT).show();
-                }
-
-
+            public void onAnimationStart(Animation animation) {
+              // TODO
             }
-        });
 
-        /** //////////////////////////////////   Premium   ////////////////////////////////// */
+            @Override
+            public void onAnimationEnd(Animation animation) {
+              imageRandomTheme.setAlpha(0.0f);
 
+              SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+              SharedPreferences.Editor ed = sPref.edit();
+              ed.putString("AdVideoTheme", "RandomAd");
+              ed.apply();
+              ((ThemesFragment) getActivity()).loadRewardedVideoAd();
+            }
 
-
-
-
-        return view;
-    }
-
-
-    public boolean isOnline() {
-        ConnectivityManager cm =
-                (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = null;
-        try { netInfo = cm.getActiveNetworkInfo();} catch (Exception e) {
-            //
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+              // TODO
+            }
+          });
+        } else {
+          Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageRandomTheme.getContext(), R.anim.shake);
+          imageRandomTheme.startAnimation(anim);
+          Toast.makeText(getActivity(), "Check your Internet connection!", Toast.LENGTH_SHORT).show();
         }
-        return netInfo != null && netInfo.isConnectedOrConnecting();
+      }
+    });
+    /** //////////////////////////////////   Premium   ////////////////////////////////// */
+
+    return view;
+  }
+
+  public boolean isOnline() {
+    ConnectivityManager cm =
+        (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo netInfo = null;
+    try {
+      netInfo = cm.getActiveNetworkInfo();
+    } catch (Exception e) {
+      // TODO
     }
+    return netInfo != null && netInfo.isConnectedOrConnecting();
+  }
 
 }

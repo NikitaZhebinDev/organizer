@@ -21,120 +21,120 @@ import first.project.nikzhebindev.organizer.fragment.tab.TabRandomFragment;
 
 public class ThemesFragment extends AppCompatActivity implements RewardedVideoAdListener {
 
-    /**
-     * Advertisement
-     */
-    private RewardedVideoAd mRewardedVideoAd;
+  /**
+   * Advertisement
+   */
+  private RewardedVideoAd mRewardedVideoAd;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_themes_fragment);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_themes_fragment);
 
-        SectionsPageAdapter mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
+    SectionsPageAdapter mSectionsPageAdapter = new SectionsPageAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
-        ViewPager mViewPager = findViewById(R.id.container);
-        setupViewPager(mViewPager);
+    // Set up the ViewPager with the sections adapter.
+    ViewPager mViewPager = findViewById(R.id.container);
+    setupViewPager(mViewPager);
 
-        TabLayout tabLayout = findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+    TabLayout tabLayout = findViewById(R.id.tabs);
+    tabLayout.setupWithViewPager(mViewPager);
 
-        // Advertisement
-        // Sample AdMob app ID: ca-app-pub-5033052294993457~5980065515
-        MobileAds.initialize(this, "ca-app-pub-5033052294993457~5980065515");
-        // Use an activity context to get the rewarded video instance.
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
-        mRewardedVideoAd.setRewardedVideoAdListener(this);
-        // Advertisement
+    // Advertisement
+    // Sample AdMob app ID: ca-app-pub-5033052294993457~5980065515
+    MobileAds.initialize(this, "ca-app-pub-5033052294993457~5980065515");
+    // Use an activity context to get the rewarded video instance.
+    mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this);
+    mRewardedVideoAd.setRewardedVideoAdListener(this);
+    // Advertisement
+  }
+
+  /**
+   * Advertisement
+   */
+  public void loadRewardedVideoAd() {
+    mRewardedVideoAd.loadAd(getString(R.string.reward_video_ad), new AdRequest.Builder().build());
+  }
+
+  private void setupViewPager(ViewPager viewPager) {
+    SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
+    adapter.addFragment(new TabDefaultFragment(), "Default");
+    adapter.addFragment(new TabIndigoGreenPurpleFragment(), "Indigo - Green - Purple");
+    adapter.addFragment(new TabRandomFragment(), "Random Theme");
+    viewPager.setAdapter(adapter);
+  }
+
+  @Override
+  public void onRewardedVideoAdLoaded() {
+    if (mRewardedVideoAd.isLoaded()) {
+      mRewardedVideoAd.show();
     }
+  }
 
-    /**
-     * Advertisement
-     */
-    public void loadRewardedVideoAd() {
-        mRewardedVideoAd.loadAd(getString(R.string.reward_video_ad), new AdRequest.Builder().build());
+  @Override
+  public void onRewardedVideoAdOpened() {
+    // TODO
+  }
+
+  @Override
+  public void onRewardedVideoStarted() {
+    // TODO
+  }
+
+  @Override
+  public void onRewardedVideoAdClosed() {
+    recreate();
+  }
+
+  @Override
+  public void onRewarded(RewardItem rewardItem) {
+
+    SharedPreferences sPrefAd = PreferenceManager.getDefaultSharedPreferences(this);
+    String AdVideoTheme = sPrefAd.getString("AdVideoTheme", "");
+
+    if (AdVideoTheme.compareTo("LeoAd") == 0) {
+      SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
+      SharedPreferences.Editor ed = sPref.edit();
+      ed.putString("THEME", "LeoTheme");
+      ed.apply();
+
+      ed.putString("ThemeWasChanged", "YES");
+      ed.apply();
+
+      // recover ad
+      ed.putString("AdVideoTheme", "");
+      ed.apply();
+
+      finish();
+    } else if (AdVideoTheme.compareTo("RandomAd") == 0) {
+      SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
+      SharedPreferences.Editor ed = sPref.edit();
+      ed.putString("THEME", "RandomTheme");
+      ed.apply();
+
+      ed.putString("ThemeWasChanged", "YES");
+      ed.apply();
+
+      // recover ad
+      ed.putString("AdVideoTheme", "");
+      ed.apply();
+
+      finish();
     }
+  }
 
-    private void setupViewPager(ViewPager viewPager) {
-        SectionsPageAdapter adapter = new SectionsPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new TabDefaultFragment(), "Default");
-        adapter.addFragment(new TabIndigoGreenPurpleFragment(), "Indigo - Green - Purple");
-        adapter.addFragment(new TabRandomFragment(), "Random Theme");
-        viewPager.setAdapter(adapter);
-    }
+  @Override
+  public void onRewardedVideoAdLeftApplication() {
+    // TODO
+  }
 
-    @Override
-    public void onRewardedVideoAdLoaded() {
-        if (mRewardedVideoAd.isLoaded()) {
-            mRewardedVideoAd.show();
-        }
-    }
+  @Override
+  public void onRewardedVideoAdFailedToLoad(int i) {
+    // TODO
+  }
 
-    @Override
-    public void onRewardedVideoAdOpened() {
-        // TODO
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-        // TODO
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        recreate();
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-
-        SharedPreferences sPrefAd = PreferenceManager.getDefaultSharedPreferences(this);
-        String AdVideoTheme = sPrefAd.getString("AdVideoTheme", "");
-
-        if (AdVideoTheme.compareTo("LeoAd") == 0) {
-            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor ed = sPref.edit();
-            ed.putString("THEME", "LeoTheme");
-            ed.apply();
-
-            ed.putString("ThemeWasChanged", "YES");
-            ed.apply();
-
-            // recover ad
-            ed.putString("AdVideoTheme", "");
-            ed.apply();
-
-            finish();
-        } else if (AdVideoTheme.compareTo("RandomAd") == 0) {
-            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor ed = sPref.edit();
-            ed.putString("THEME", "RandomTheme");
-            ed.apply();
-
-            ed.putString("ThemeWasChanged", "YES");
-            ed.apply();
-
-            // recover ad
-            ed.putString("AdVideoTheme", "");
-            ed.apply();
-
-            finish();
-        }
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-        // TODO
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-        // TODO
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-        // TODO
-    }
+  @Override
+  public void onRewardedVideoCompleted() {
+    // TODO
+  }
 }

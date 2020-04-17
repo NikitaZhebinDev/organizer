@@ -13,281 +13,231 @@ import android.widget.ImageButton;
 
 import first.project.nikzhebindev.organizer.R;
 
+public class TabIndigoGreenPurpleFragment extends Fragment {
 
+  private static final String TAG = "TabIndigoGreenPurpleFragment";
 
-public class TabIndigoGreenPurpleFragment extends Fragment{
+  @Nullable
+  @Override
+  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-    private static final String TAG = "TabIndigoGreenPurpleFragment";
+    View view = inflater.inflate(R.layout.theme_indigo_green_purple_fragment, container, false);
 
+    final ImageButton imageButtonIndigo = view.findViewById(R.id.imageButtonIndigo);
+    final ImageButton imageButtonIndigoNight = view.findViewById(R.id.imageButtonIndigoNight);
 
+    final ImageButton imageButtonGreen = view.findViewById(R.id.imageButtonGreen);
+    final ImageButton imageButtonGreenNight = view.findViewById(R.id.imageButtonGreenNight);
 
+    final ImageButton imageButtonPurple = view.findViewById(R.id.imageButtonPurple);
+    final ImageButton imageButtonPurpleNight = view.findViewById(R.id.imageButtonPurpleNight);
 
+    imageButtonIndigo.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonIndigo.getContext(), R.anim.btn_theme_click);
+        imageButtonIndigo.startAnimation(anim);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+          @Override
+          public void onAnimationStart(Animation animation) {
+            // TODO
+          }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+          @Override
+          public void onAnimationEnd(Animation animation) {
+            imageButtonIndigo.setAlpha(0.0f);
 
-        View view = inflater.inflate(R.layout.theme_indigo_green_purple_fragment, container, false);
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString("THEME", "IndigoTheme");
+            ed.apply();
 
+            ed.putString("ThemeWasChanged", "YES");
+            ed.apply();
 
-        final ImageButton imageButtonIndigo = view.findViewById(R.id.imageButtonIndigo);
-        final ImageButton imageButtonIndigoNight = view.findViewById(R.id.imageButtonIndigoNight);
+            getActivity().finish();
+          }
 
-        final ImageButton imageButtonGreen = view.findViewById(R.id.imageButtonGreen);
-        final ImageButton imageButtonGreenNight = view.findViewById(R.id.imageButtonGreenNight);
+          @Override
+          public void onAnimationRepeat(Animation animation) {
+            // TODO
+          }
+        });
+      }
+    });
 
-        final ImageButton imageButtonPurple = view.findViewById(R.id.imageButtonPurple);
-        final ImageButton imageButtonPurpleNight = view.findViewById(R.id.imageButtonPurpleNight);
+    imageButtonIndigoNight.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonIndigoNight.getContext(), R.anim.btn_theme_click);
+        imageButtonIndigoNight.startAnimation(anim);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+          @Override
+          public void onAnimationStart(Animation animation) {
+            // TODO
+          }
 
+          @Override
+          public void onAnimationEnd(Animation animation) {
+            imageButtonIndigoNight.setAlpha(0.0f);
 
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString("THEME", "IndigoThemeN");
+            ed.apply();
 
+            ed.putString("ThemeWasChanged", "YES");
+            ed.apply();
 
+            getActivity().finish();
+          }
 
-        imageButtonIndigo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+          @Override
+          public void onAnimationRepeat(Animation animation) {
+            // TODO
+          }
+        });
+      }
+    });
 
-                Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonIndigo.getContext(),  R.anim.btn_theme_click);
-                imageButtonIndigo.startAnimation(anim);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
+    imageButtonGreen.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonGreen.getContext(), R.anim.btn_theme_click);
+        imageButtonGreen.startAnimation(anim);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+          @Override
+          public void onAnimationStart(Animation animation) {
+            // TODO
+          }
 
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        imageButtonIndigo.setAlpha(0.0f);
+          @Override
+          public void onAnimationEnd(Animation animation) {
+            imageButtonGreen.setAlpha(0.0f);
 
-                        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                        SharedPreferences.Editor ed = sPref.edit();
-                        ed.putString("THEME", "IndigoTheme");
-                        ed.apply();
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString("THEME", "GreenTheme");
+            ed.apply();
 
-                        ed.putString("ThemeWasChanged", "YES");
-                        ed.apply();
+            ed.putString("ThemeWasChanged", "YES");
+            ed.apply();
 
-                        getActivity().finish();
-                    }
+            getActivity().finish();
+          }
 
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-
-            }
+          @Override
+          public void onAnimationRepeat(Animation animation) {
+            // TODO
+          }
         });
 
+      }
+    });
 
-        imageButtonIndigoNight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    imageButtonGreenNight.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonGreenNight.getContext(), R.anim.btn_theme_click);
+        imageButtonGreenNight.startAnimation(anim);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+          @Override
+          public void onAnimationStart(Animation animation) {
+            // TODO
+          }
 
-                Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonIndigoNight.getContext(),  R.anim.btn_theme_click);
-                imageButtonIndigoNight.startAnimation(anim);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
+          @Override
+          public void onAnimationEnd(Animation animation) {
+            imageButtonGreenNight.setAlpha(0.0f);
 
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        imageButtonIndigoNight.setAlpha(0.0f);
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString("THEME", "GreenThemeN");
+            ed.apply();
 
-                        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                        SharedPreferences.Editor ed = sPref.edit();
-                        ed.putString("THEME", "IndigoThemeN");
-                        ed.apply();
+            ed.putString("ThemeWasChanged", "YES");
+            ed.apply();
 
-                        ed.putString("ThemeWasChanged", "YES");
-                        ed.apply();
+            getActivity().finish();
+          }
 
-                        getActivity().finish();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-
-            }
+          @Override
+          public void onAnimationRepeat(Animation animation) {
+            // TODO
+          }
         });
 
+      }
+    });
 
+    imageButtonPurple.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonPurple.getContext(), R.anim.btn_theme_click);
+        imageButtonPurple.startAnimation(anim);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+          @Override
+          public void onAnimationStart(Animation animation) {
+            // TODO
+          }
 
+          @Override
+          public void onAnimationEnd(Animation animation) {
+            imageButtonPurple.setAlpha(0.0f);
 
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString("THEME", "PurpleTheme");
+            ed.apply();
 
+            ed.putString("ThemeWasChanged", "YES");
+            ed.apply();
 
+            getActivity().finish();
+          }
 
-
-
-
-
-        imageButtonGreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonGreen.getContext(),  R.anim.btn_theme_click);
-                imageButtonGreen.startAnimation(anim);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        imageButtonGreen.setAlpha(0.0f);
-
-                        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                        SharedPreferences.Editor ed = sPref.edit();
-                        ed.putString("THEME", "GreenTheme");
-                        ed.apply();
-
-                        ed.putString("ThemeWasChanged", "YES");
-                        ed.apply();
-
-                        getActivity().finish();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-
-            }
+          @Override
+          public void onAnimationRepeat(Animation animation) {
+            // TODO
+          }
         });
 
+      }
+    });
 
-        imageButtonGreenNight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    imageButtonPurpleNight.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonPurpleNight.getContext(), R.anim.btn_theme_click);
+        imageButtonPurpleNight.startAnimation(anim);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+          @Override
+          public void onAnimationStart(Animation animation) {
+            // TODO
+          }
 
-                Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonGreenNight.getContext(),  R.anim.btn_theme_click);
-                imageButtonGreenNight.startAnimation(anim);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
+          @Override
+          public void onAnimationEnd(Animation animation) {
+            imageButtonPurpleNight.setAlpha(0.0f);
 
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        imageButtonGreenNight.setAlpha(0.0f);
+            SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            SharedPreferences.Editor ed = sPref.edit();
+            ed.putString("THEME", "PurpleThemeN");
+            ed.apply();
 
-                        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                        SharedPreferences.Editor ed = sPref.edit();
-                        ed.putString("THEME", "GreenThemeN");
-                        ed.apply();
+            ed.putString("ThemeWasChanged", "YES");
+            ed.apply();
 
-                        ed.putString("ThemeWasChanged", "YES");
-                        ed.apply();
+            getActivity().finish();
+          }
 
-                        getActivity().finish();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-
-            }
+          @Override
+          public void onAnimationRepeat(Animation animation) {
+            // TODO
+          }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        imageButtonPurple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonPurple.getContext(),  R.anim.btn_theme_click);
-                imageButtonPurple.startAnimation(anim);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        imageButtonPurple.setAlpha(0.0f);
-
-                        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                        SharedPreferences.Editor ed = sPref.edit();
-                        ed.putString("THEME", "PurpleTheme");
-                        ed.apply();
-
-                        ed.putString("ThemeWasChanged", "YES");
-                        ed.apply();
-
-                        getActivity().finish();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-
-            }
-        });
-
-
-        imageButtonPurpleNight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Animation anim = android.view.animation.AnimationUtils.loadAnimation(imageButtonPurpleNight.getContext(),  R.anim.btn_theme_click);
-                imageButtonPurpleNight.startAnimation(anim);
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        imageButtonPurpleNight.setAlpha(0.0f);
-
-
-
-                        SharedPreferences sPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                        SharedPreferences.Editor ed = sPref.edit();
-                        ed.putString("THEME", "PurpleThemeN");
-                        ed.apply();
-
-                        ed.putString("ThemeWasChanged", "YES");
-                        ed.apply();
-
-                        getActivity().finish();
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-                    }
-                });
-
-            }
-        });
-
-
-
-
-        return view;
-    }
-
-
-
-
-
-
-
+      }
+    });
+    return view;
+  }
 }

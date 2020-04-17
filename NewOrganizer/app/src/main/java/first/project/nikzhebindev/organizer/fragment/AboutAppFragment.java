@@ -14,26 +14,26 @@ import first.project.nikzhebindev.organizer.R;
 
 public class AboutAppFragment extends Fragment {
 
-    private static String MARKET_URI = "market://details?id=first.project.nikzhebindev.organizer";
+  private static String MARKET_URI = "market://details?id=first.project.nikzhebindev.organizer";
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
+  @Override
+  public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+  }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_about, container, false);
-        FloatingActionButton fab = rootView.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(MARKET_URI));
-                startActivity(intent);
-            }
-        });
-        return rootView;
-    }
+  @Nullable
+  @Override
+  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    View rootView = inflater.inflate(R.layout.fragment_about, container, false);
+    FloatingActionButton fab = rootView.findViewById(R.id.fab);
+    fab.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(MARKET_URI));
+        startActivity(intent);
+      }
+    });
+    return rootView;
+  }
 }
